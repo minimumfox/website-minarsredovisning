@@ -1,2 +1,2 @@
-/foo			https://google.com
-#/			https://www.minarsredovisning.se/
+http://www.minårsredovisning.se/*	https://www.minarsredovisning.se/:splat		301!
+https://www.minårsredovisning.se/*	https://www.minarsredovisning.se/:splat		301!
