@@ -3,14 +3,146 @@
 <head>
 <meta charset="utf-8"/>
 <title>minårsredovisning.se</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
 <style>
+:root {
+	--content-width: 1200px;
+	--minimum-margin: 30px;
+	--brand-dark: #008756;
+	--brand-medium: #17CF8C;
+	--brand-light: #9FF7C9;
+	--gray: #F2F2F2;
+	--gray-dark: #C4CECB;
+	--gray-darker: #7a7a7a;
+	--white: #FFFFFF;
+	--text: #333333;
+	--small-radius: 40px;
+	--large-radius: 60px;
+	--primary-shadow: 9px 9px 15px -13px rgba(0,0,0,0.6);
+}
+
 body {
-	font-family: arial;
+	font-family: 'Open Sans', sans-serif;
+	margin: 0px;
+	color: var(--text);
+}
+
+.roboto {
+	font-family: 'Roboto Slab', arial;
+	font-weight: 700;
+}
+
+.grid-cell {
+	width: 150px;
+	height: 150px;
+}
+
+.card {
+	flex: 1;
+	background: #fff;
+	border-radius: 15px;
+	margin: 10px;
+	padding: 10px;
+	box-shadow: var(--primary-shadow);
+	position: relative;
+}
+.card-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 80px;
+}
+.card-title {
+	font-family: 'Roboto Slab', arial;
+	font-weight: bold;
+	font-size: 17px;
+	text-align: center;
+}
+.card-body {
+	text-align: center;
+	margin-top: 10px;
+	font-size: 14px;
+	padding-bottom: 20px;
+}
+a {
+	text-decoration: none;
+	color: #222;
 }
 </style>
 </head>
 <body>
-<h1>minårsredovisning.se</h1>
 
-<p>&copy; P3G Innovation AB (559378-7848) <a href="mailto:p3ginnovation@gmail.com">e-mail</a></p>
+<div style="display: flex; flex-direction: column">
+	<div style="background: var(--white); padding-top: 20px; padding-bottom: 20px;">
+		<div style="display: flex; justify-content: space-between; align-items: center; max-width: var(--content-width); margin: auto;">
+			<div style="display: flex; align-items: center;">
+				<img src="minarsredovisning.png" width="45">
+				<div class="roboto" style="font-size: 24px; margin-left: 10px">Min Årsredovisning</div>
+			</div>
+			<div style="display: flex; font-size: 15px; font-weight: bold; gap: 40px; position: relative; top: 4px">
+				<!--<div>Hur funkar det?</div>-->
+				<div>Kontakt</div>
+				<div>Logga In</div>
+			</div>
+		</div>
+	</div>
+	<div style="background: var(--gray); height: 575px">
+		<div style="max-width: var(--content-width); margin: auto; padding-left: var(--minimum-margin); padding-right: var(--minimum-margin); display: flex; justify-content: center;">
+			<div style="flex:1; margin-top: 50px;">
+				<h1 class="roboto" style="font-size: 34px">Ett enkelt sätt att få <br/> ordning på årsredovisningen!</h1>
+				<p style="font-weight: bold; font-size: 18px; color: var(--gray-darker)">Med hjälp av vår tjänst blir din årsredovisning rätt och riktig.
+					Skriv in ditt företags uppgifter så löser vi resten.</p>
+				<br/>
+				<a href="https://app.minarsredovisning.se/" style="color: var(--white); padding: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; width: 150px; background: var(--brand-medium); text-decoration: none; cursor: pointer; border-radius: 8px; box-shadow: var(--primary-shadow);"><div>Kom igång</div></a>
+				<div style="display: flex; margin-top: 55px">
+					<div class="card">
+						<div class="card-icon"><img src="icon-checkmark.png" width="75"></div>
+						<div class="card-title">Korrekta beräkningar</div>
+						<div class="card-body">Appen sammanställer årsredovisningen och företagets deklaration</div>
+					</div>
+					<div class="card">
+						<div class="card-icon"><img src="icon-document.png" width="75"></div>
+						<div class="card-title">Förhandsvisning</div>
+						<div class="card-body">Medan du fyller i dina uppgifter ser du hela tiden en förhandsvisning av det färdiga dokumentet</div>
+					</div>
+					<div class="card">
+						<div class="card-icon"><img src="icon-clock.png" width="75"></div>
+						<div class="card-title">Snabbt och enkelt</div>
+						<div class="card-body">Läs in din bokföring och appen visar vilka uppgifter du behöver komplettera med</div>
+					</div>
+				</div>
+			</div>
+			<div style="margin-top: 40px; margin-left: 40px">
+				<div style="display: flex">
+					<div class="grid-cell" style="width: 300px; background-image: url('tile-laptop.jpg'); background-size: cover; border-top-right-radius: var(--large-radius); border-bottom-left-radius: var(--large-radius);"></div>
+					<div class="grid-cell" style="background: var(--brand-medium); border-bottom-left-radius: var(--small-radius); color: var(--white); font-weight: bold; display: flex; font-size: 14px; flex-direction: column; justify-content: center; align-items: center">
+						<div><svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 24 24" width="40" stroke="none" fill="#fff"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+						<div>Klart på 9 minuter!</div>
+					</div>
+				</div>
+				<div style="display: flex">
+					<div class="grid-cell" style="background: var(--brand-light); border-bottom-right-radius: var(--small-radius);"></div>
+					<div class="grid-cell" style="background: var(--gray-dark); border-top-left-radius: var(--small-radius); border-bottom-right-radius: var(--small-radius);"></div>
+					<div class="grid-cell" style="background: var(--brand-light); border-bottom-left-radius: var(--small-radius); border-bottom-right-radius: var(--small-radius)"></div>
+				</div>
+				<div style="display: flex">
+					<div class="grid-cell" style="background: var(--brand-medium); border-top-right-radius: var(--small-radius); border-top-left-radius: var(--small-radius); border-bottom-right-radius: var(--small-radius); color: var(--white); font-weight: bold; display: flex; align-items: center; font-size: 14px; text-align: center;">
+						<div style="padding: 20px">Vi finns här för att hjälpa dig</div>
+					</div>
+					<div class="grid-cell" style="width: 300px; background-image: url('tile-done.jpg'); background-size: cover; border-top-right-radius: var(--large-radius);">8</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="background: var(--brand-light); padding-left: var(--left-padding); height: 150px">
+		<div style="max-width: var(--content-width); margin: auto; padding-left: var(--minimum-margin); padding-right: var(--minimum-margin)">
+			<br><br><br>
+			<p>&copy; P3G Innovation AB (559378-7848) &nbsp;&nbsp;&nbsp;&nbsp; <a href="mailto:p3ginnovation@gmail.com">p3ginnovation@gmail.com</a></p>
+		</div>
+	</div>
+</div>
+
+
 </body>
