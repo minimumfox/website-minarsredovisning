@@ -1,0 +1,6 @@
+{
+  "name": "website-minarsredovisning",
+  "scripts": {
+    "build": "echo -n \"\n<!-- $COMMIT_REF -->\" >> index.html"
+  }
+}
