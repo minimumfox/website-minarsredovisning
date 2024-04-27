@@ -1,0 +1,30 @@
+#!/bin/bash
+set -e
+START_TIME=$(date +%s)
+npm run build
+git push "$@" webstaging HEAD:main
+TIME_NOW=$(date +%s)
+SECS_TAKEN=$(($TIME_NOW - $START_TIME))
+MINS_TAKEN=$(($SECS_TAKEN/60))
+REMAINING_SECS=$(($SECS_TAKEN-$MINS_TAKEN*60))
+echo "Local build took: ${MINS_TAKEN}m${REMAINING_SECS}s"
+
+TARGET_BASEURL=https://webstaging.minarsredovisning.se
+DEPLOYED_REVISION=$(git log -1 --pretty=format:%H)
+
+echo "-----------------------------------------------------------------------"
+echo "Deploy list: https://app.netlify.com/sites/minarsredovisning-webstaging/deploys"
+echo -n "Waiting for deploy of $DEPLOYED_REVISION to $TARGET_BASEURL to complete "
+START_TIME=$(date +%s)
+while true; do
+    CURRENT_REVISION=$(curl -s $TARGET_BASEURL/revision.txt)
+    [ "$CURRENT_REVISION" == "$DEPLOYED_REVISION" ] && break
+    echo -n "."
+    sleep 2
+done
+TIME_NOW=$(date +%s)
+SECS_TAKEN=$(($TIME_NOW - $START_TIME))
+MINS_TAKEN=$(($SECS_TAKEN/60))
+REMAINING_SECS=$(($SECS_TAKEN-$MINS_TAKEN*60))
+echo ""
+echo "Deploy done (${MINS_TAKEN}m${REMAINING_SECS}s): $TARGET_BASEURL"
