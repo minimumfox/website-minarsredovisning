@@ -1,0 +1,12 @@
+{
+    "extends": [
+        "stylelint-config-recommended",
+        "stylelint-config-html/html",
+        "stylelint-config-html/xml",
+        "stylelint-config-html/astro"
+    ],
+    "rules": {
+        "no-empty-source": null,
+        "font-family-no-missing-generic-family-keyword": null
+    }
+}
