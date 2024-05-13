@@ -1,0 +1,21 @@
+---
+const { class: className, ...rest } = Astro.props
+---
+
+<style>
+    .box-with-icon {
+        display: flex;
+        gap: 20px;
+    }
+</style>
+<div class:list={['box-with-icon', className]} {...rest}>
+    <div>
+        <slot name="icon" />
+    </div>
+    <div style="padding-top: 12px; width: 240px">
+        <div class="headline-text" style="margin-bottom: 15px">
+            <slot name="title" />
+        </div>
+        <slot />
+    </div>
+</div>

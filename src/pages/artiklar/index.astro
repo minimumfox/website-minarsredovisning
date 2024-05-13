@@ -1,0 +1,75 @@
+---
+import BaseHead from '../../components/BaseHead.astro'
+import Header from '../../components/Header.astro'
+import Footer from '../../domain/Footer.astro'
+import Section from '../../components/Section.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../siteConfig'
+import { getCollection } from 'astro:content'
+import { Image } from 'astro:assets'
+import Card from '../../components/Card.astro'
+import LinkWithArrow from '../../components/LinkWithArrow.astro'
+
+const allArticles = (await getCollection('articles')).sort(
+    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+)
+const ARTICLE_CARD_WIDTH = 350
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <style>
+            ul {
+                padding-left: 0;
+                list-style-type: none;
+                margin-top: 50px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <Header />
+        <main>
+            <Section>
+                <h2>Kunskapsbank</h2>
+                <p>
+                    Lär dig om vår tjänst, årsredovisning (K2), deklaration (INK2), BAS-kontoplanen och bokföring med
+                    mera.
+                </p>
+                <ul>
+                    {
+                        allArticles.map((article) => (
+                            <li>
+                                <Card style={`width: ${ARTICLE_CARD_WIDTH}px`}>
+                                    <a
+                                        href={`/artiklar/${article.slug}/`}
+                                        style="color: var(--headings-color); text-decoration: none"
+                                    >
+                                        <Image
+                                            src={article.data.heroImage}
+                                            width={ARTICLE_CARD_WIDTH - 30 * 2}
+                                            densities={[1.5, 2]}
+                                            style="object-fit: cover; border-radius: 12px"
+                                            alt=""
+                                        />
+                                        <h4 style="margin-top: 10px">{article.data.title}</h4>
+                                    </a>
+                                    <LinkWithArrow href={`/artiklar/${article.slug}/`} style="margin-top: 20px">
+                                        Läs artikeln
+                                    </LinkWithArrow>
+                                </Card>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </Section>
+        </main>
+        <br /><br /><br />
+        <Section>
+            <Footer />
+        </Section>
+    </body>
+</html>

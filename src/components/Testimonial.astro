@@ -1,0 +1,16 @@
+---
+import QuotationMark from '../icons/QuotationMark.astro'
+---
+
+<div style="display: flex; flex-direction: column; align-items: center">
+    <div style="position: relative">
+        <QuotationMark style="position: absolute; left: -40px; top: -20px; font-size: 2em; color: #E8E8E8" />
+        <div style="font-style: italic ">
+            <slot name="quote" />
+        </div>
+        <QuotationMark style="position: absolute; bottom: 5px; right: -40px; font-size: 2em; color: #E8E8E8" />
+    </div>
+    <div style="margin-top: 20px"><slot name="image" /></div>
+    <div class="headline-text"><slot name="name" /></div>
+    <div style="font-size: 0.9rem"><slot name="company" /></div>
+</div>

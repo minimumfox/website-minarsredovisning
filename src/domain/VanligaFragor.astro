@@ -1,0 +1,75 @@
+---
+import Chip from '../components/Chip.astro'
+import GrayBox from '../components/Card.astro'
+import LinkButton from '../components/LinkButton.astro'
+import ExpandCollapse from '../components/ExpandCollapse.astro'
+import QuestionMark from '../icons/QuestionMark.astro'
+import LinkWithArrow from '../components/LinkWithArrow.astro'
+import { PRICE_EXCL_VAT } from '../siteConfig'
+---
+
+<div id="faq" style="display: flex; flex-direction: column; align-items: center; gap: 20px">
+    <Chip variant="flair">FAQ</Chip>
+    <h2 style="text-wrap: balance; text-align: center">Vanligt förekommande frågor</h2>
+    <p>Hitta svaren på dem mest vanliga frågorna här.</p>
+    <GrayBox style="filter: brightness(98%)">
+        <ExpandCollapse title={'Kostar det något att använda er tjänst?'}>
+            Du betalar först när du är 100% nöjd ska lämna in din årsredovisning. Vi har inga månadskostnader utan
+            endast en engångskostnad på {PRICE_EXCL_VAT} kr ex moms vid inlämning.
+            <div style="margin-top: 10px">
+                <LinkButton
+                    href="#kontakt"
+                    kind="filled"
+                    style="font-weight: 500; font-size: 17px; margin-bottom: 15px"
+                    class="ga-begin-signup"
+                >
+                    Prova tjänsten kostnadsfritt
+                </LinkButton>
+            </div>
+        </ExpandCollapse>
+        <ExpandCollapse title={'Kan jag läsa in min bokföring eller behöver jag manuellt skriva in alla siffror?'}>
+            När du laddar upp din bokföring till oss kan vi förberäkna stora delar av årsredovisningen, allt för att det
+            skall gå snabbt och smidigt som möjligt. Du kommer sen få komplettera med övrig information som till exempel
+            verksamhetsberättelse samt stor utdelning du vill göra.
+            <br /><br />
+            Det finns också möjlighet att starta med en tom årsredovisning och fylla i alla siffror manuellt. Risken för
+            fel blir dock större och du får inte lika bra hjälp när du ska bokföra årets resultat/skatt.
+        </ExpandCollapse>
+        <ExpandCollapse title={'Kan jag få hjälp om jag fastnar i processen?'}>
+            Självklart kan du få hjälp om du skulle fastna med något, ta kontakt med vår support på
+            info@minarsredovisning.se så hjälper vi dig så snart som möjligt.
+        </ExpandCollapse>
+        <ExpandCollapse title={'Kan jag använda tjänsten för årsredovisning för K3 bolag?'}>
+            Nej, vår tjänst kan endast användas för att upprätta årsredovisning åt mindre aktiebolag (K2).
+            <br /><br />
+            Ett aktiebolag behöver upprätta årsredovisning enligt K3-regelverket om de två år i rad uppfyller minst två av
+            följande villkor:
+            <ul>
+                <li>Fler än 50 anställda</li>
+                <li>Balansomslutning över 40 miljoner kronor per år</li>
+                <li>Nettoomsättning över 80 miljoner per år</li>
+            </ul>
+        </ExpandCollapse>
+        <ExpandCollapse title={'Behöver jag lämna in mina kortuppgifter innan jag startar?'}>
+            Nej, du behöver inte lämna några kortuppgifter innan du startar processen. Betalning sker först när du skall
+            lämna in årsredovisningen.
+        </ExpandCollapse>
+    </GrayBox>
+    <GrayBox style="padding: 10px; filter: brightness(98%)"
+        ><div style="display: flex; align-items: center; gap: 10px">
+            <QuestionMark style="display: inline-block; font-size: 1.5rem; color: var(--accent-color)" />
+            <div>
+                Hittade du inte svaret du letade efter?
+                <LinkWithArrow href="#kontakt" style="margin-left: 10px">Kontakta oss</LinkWithArrow>
+            </div>
+        </div>
+    </GrayBox>
+    <LinkButton
+        href="#kontakt"
+        kind="filled"
+        style="font-weight: 500; font-size: 17px; margin-bottom: 10px"
+        class="ga-begin-signup"
+    >
+        Prova tjänsten kostnadsfritt
+    </LinkButton>
+</div>

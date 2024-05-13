@@ -1,0 +1,17 @@
+---
+const { class: className, radius = 50, ...rest } = Astro.props
+---
+
+<style>
+    .icon-badge {
+        display: inline-block;
+        background: #ecf0ee;
+        color: var(--accent-color);
+        border-radius: 999px;
+        font-size: 24px;
+        padding: 14px;
+    }
+</style>
+<div class:list={['icon-badge', className]} {...rest}>
+    <div style="display: grid; place-content: center"><slot /></div>
+</div>

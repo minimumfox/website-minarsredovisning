@@ -1,0 +1,25 @@
+---
+import SocialFacebook from '../icons/SocialFacebook.astro'
+import SocialLinkedIn from '../icons/SocialLinkedIn.astro'
+import LinkButton from '../components/LinkButton.astro'
+const { href, icon = 'li', class: className, ...rest } = Astro.props
+---
+
+<style>
+    .link-button-social {
+        user-select: none;
+        display: grid;
+        place-content: center;
+        text-decoration: none;
+        line-height: 1;
+        color: #fff !important;
+        border-radius: 50%;
+        padding: 0;
+        width: 60px;
+        height: 60px;
+    }
+</style>
+<LinkButton href={href} class:list={['link-button-social', 'no-print', className]} {...rest}>
+    {icon === 'fb' && <SocialFacebook style="font-size: 25px; color: #fff" />}
+    {icon === 'li' && <SocialLinkedIn style="font-size: 31px; color: #fff" />}
+</LinkButton>

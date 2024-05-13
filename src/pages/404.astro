@@ -1,0 +1,33 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Chip from '../components/Chip.astro'
+import Header from '../components/Header.astro'
+import LinkButton from '../components/LinkButton.astro'
+import Section from '../components/Section.astro'
+import Footer from '../domain/Footer.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../siteConfig'
+---
+
+<!doctype html>
+<html lang="sv">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
+        <main>
+            <br /><br /><br /><br /><br />
+            <Section style="display: flex; flex-direction: column; align-items: center">
+                <Chip variant="flair">404</Chip>
+                <h1>Oj, sidan du söker finns inte...</h1>
+                <p>Kanske letade du efter någon av våra andra sidor?</p>
+                <LinkButton href="/">Gå till startsidan</LinkButton>
+            </Section>
+        </main>
+        <br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br />
+        <Section>
+            <Footer />
+        </Section>
+    </body>
+</html>

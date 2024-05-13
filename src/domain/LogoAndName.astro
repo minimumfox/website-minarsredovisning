@@ -1,0 +1,12 @@
+---
+import { SITE_TITLE } from '../siteConfig'
+import minarsredovisningLogo from '../static/minarsredovisning-logo.svg'
+const { logoSize, name = SITE_TITLE, style, ...rest } = Astro.props
+---
+
+<a href="/" style={`color: #5f6563; font-size: 24px; font-weight: bold; text-decoration: none; ${style}`} {...rest}>
+    <div style="display: flex; align-items: center; gap: 10px">
+        <img src={minarsredovisningLogo.src} alt="logo" width={logoSize} height={logoSize} />
+        <div style="font-family: 'Roboto Slab'">{name}</div>
+    </div>
+</a>

@@ -1,0 +1,34 @@
+---
+import WaveSvg from './WaveSvg.astro'
+const { class: className, bgcolor = 'var(--section-wavy-color)', waveHeight = 150, ...rest } = Astro.props
+---
+
+<section class:list={['section', className]} {...rest}>
+    <style>
+        .section-container {
+            margin: 0 auto;
+            max-width: var(--section-width);
+            padding-top: 0px;
+            padding-bottom: 0px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    </style>
+    <div>
+        <div style="position: relative">
+            <WaveSvg waveHeight={waveHeight} style={`position: relative; z-index: -1; bottom: 0; color: ${bgcolor}`} />
+        </div>
+        <div style={`background-color: ${bgcolor}; padding-top: 2px; padding-bottom: 2px`}>
+            <div class="section-container">
+                <slot />
+            </div>
+        </div>
+        <div style="position: relative">
+            <WaveSvg
+                variant="second"
+                waveHeight={waveHeight}
+                style={`position: relative; z-index: -1; top: 0; transform: scaleY(-1); color: ${bgcolor}`}
+            />
+        </div>
+    </div>
+</section>

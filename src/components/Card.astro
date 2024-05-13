@@ -1,0 +1,7 @@
+---
+const { style, ...rest } = Astro.props
+---
+
+<div style={`background: var(--card-bgcolor); border-radius: 12px; padding: 30px; ${style}`} {...rest}>
+    <slot />
+</div>

@@ -1,0 +1,115 @@
+:root {
+    --body-bgcolor: #fbfdfc;
+    --section-wavy-color: #f1f4f4;
+    --card-bgcolor: #ebf0ee; /* #e5eae8 */
+
+    --text-color: #5f6563;
+    --headings-color: #1a211e;
+    --accent-color: #26997b;
+    --neutral-chip-color: #dce0df;
+
+    --header-width: 1406px;
+    --section-width: 1406px;
+}
+
+@media print {
+    .no-print,
+    .no-print * {
+        display: none !important;
+    }
+}
+.headline-text {
+    color: var(--headings-color);
+    font-weight: 600;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--headings-color);
+}
+h1 {
+    font-size: clamp(37px, 8vw, 56px);
+    font-weight: 800;
+}
+h2 {
+    font-size: clamp(1.953rem, 1.569rem + 1.284cqi, 2.665rem);
+}
+h3 {
+    font-size: clamp(30px, 1.5rem, 35px);
+}
+h4 {
+    font-size: 25px;
+}
+
+/*** Josh Comeau CSS reset ****************************************************/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+/*** END OF JOSH COMEAU CSS RESET *********************************************/
+
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+/* Style "a" directly via global CSS because if you create an Astro "Link"
+ * component, then prettier will not recognize <Link> as a display:inline
+ * element and thus the prettier setting htmlWhitespaceSensitivity:"css"
+ * will more frequently trigger awkward formatting like:
+ * <Link href="...">
+ *      Hello World
+ * </Link>
+ * in the middle of a normal text paragraph. Also no import is needed for <a>.
+ */
+a {
+    color: #29a383;
+}
+a:hover {
+    color: #12a16d;
+}

@@ -1,0 +1,39 @@
+---
+const { href, kind = 'filled', class: className, ...rest } = Astro.props
+---
+
+<style>
+    .link-button {
+        user-select: none;
+        display: inline-block;
+        text-decoration: none;
+        color: var(--accent-color);
+        padding: 14px 24px;
+        border-radius: 12px;
+        line-height: 1;
+        border: none;
+    }
+    .link-button-filled {
+        background: var(--accent-color);
+        color: #fff;
+    }
+    .link-button-filled:hover {
+        transform: scale(1.02);
+        transition: all 100ms ease-in;
+    }
+    .link-button-ghost {
+        border: 1px solid var(--accent-color);
+        color: var(--accent-color);
+    }
+    .link-button-ghost:hover {
+        background-color: var(--accent-color);
+        color: #fff;
+        transition: all 200ms ease-in;
+    }
+</style>
+<button
+    class:list={['link-button', 'no-print', kind === 'filled' ? 'link-button-filled' : 'link-button-ghost', className]}
+    {...rest}
+>
+    <slot />
+</button>

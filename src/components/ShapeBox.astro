@@ -1,0 +1,81 @@
+---
+import GrayBox from './Card.astro'
+---
+
+<style>
+    .top-left-doodle {
+        --first-border-radius: 25px;
+        --second-border-radius: 25px;
+        --third-border-radius: 25px;
+        position: absolute;
+        min-width: clamp(64px, 30%, 280px);
+        min-height: clamp(40px, 10vw, 64px);
+        background: var(--body-bgcolor);
+        border-bottom-right-radius: var(--second-border-radius);
+    }
+    .top-left-doodle:before {
+        content: '';
+        width: calc(2 * var(--first-border-radius));
+        height: calc(2 * var(--first-border-radius));
+        border-radius: var(--first-border-radius);
+        position: absolute;
+        left: 0;
+        top: 100%;
+        box-shadow: calc(-1 * var(--first-border-radius)) calc(-1 * var(--first-border-radius)) var(--body-bgcolor);
+    }
+    .top-left-doodle:after {
+        content: '';
+        width: calc(2 * var(--third-border-radius));
+        height: calc(2 * var(--third-border-radius));
+        border-radius: var(--third-border-radius);
+        position: absolute;
+        left: 100%;
+        top: 0;
+        box-shadow: calc(-1 * var(--third-border-radius)) calc(-1 * var(--third-border-radius)) var(--body-bgcolor);
+    }
+    .bottom-right-doodle {
+        --first-border-radius: 25px;
+        --second-border-radius: 25px;
+        --third-border-radius: 25px;
+        position: absolute;
+        min-width: 150px;
+        min-height: 60px;
+        right: 0;
+        bottom: 0;
+        background: var(--body-bgcolor);
+        border-top-left-radius: var(--second-border-radius);
+    }
+    .bottom-right-doodle:before {
+        content: '';
+        width: calc(2 * var(--first-border-radius));
+        height: calc(2 * var(--first-border-radius));
+        border-radius: var(--first-border-radius);
+        position: absolute;
+        right: 100%;
+        bottom: 0;
+        box-shadow: calc(var(--first-border-radius)) calc(var(--first-border-radius)) var(--body-bgcolor);
+    }
+    .bottom-right-doodle:after {
+        content: '';
+        width: calc(2 * var(--third-border-radius));
+        height: calc(2 * var(--third-border-radius));
+        border-radius: var(--third-border-radius);
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+        box-shadow: calc(var(--third-border-radius)) calc(var(--third-border-radius)) var(--body-bgcolor);
+    }
+</style>
+<footer>
+    <div style="position: relative; margin-bottom: 20px">
+        <div class="top-left-doodle">
+            <slot name="top-left" />
+        </div>
+        <div class="bottom-right-doodle">
+            <div style="padding: 20px; border-radius: 100%"><slot name="bottom-right" /></div>
+        </div>
+        <GrayBox>
+            <slot />
+        </GrayBox>
+    </div>
+</footer>

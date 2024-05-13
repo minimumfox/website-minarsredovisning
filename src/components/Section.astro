@@ -1,0 +1,17 @@
+---
+const { class: className, ...rest } = Astro.props
+---
+
+<section class:list={['section', className]} {...rest}>
+    <style>
+        .section {
+            margin: 0 auto;
+            max-width: var(--section-width);
+            padding-top: 35px;
+            padding-bottom: 100px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    </style>
+    <slot />
+</section>

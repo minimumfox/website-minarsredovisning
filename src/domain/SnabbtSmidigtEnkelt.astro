@@ -1,0 +1,80 @@
+---
+import LinkButton from '../components/LinkButton.astro'
+import RowButColumnOnMobile from '../components/RowButColumnOnMobile.astro'
+import GrayBox from '../components/Card.astro'
+import Chip from '../components/Chip.astro'
+import ItemChecked from '../components/ItemChecked.astro'
+import ItemCrossed from '../components/ItemCrossed.astro'
+import { getAppUrl, PRICE_EXCL_VAT } from '../siteConfig'
+---
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 25px">
+    <h2 style="margin-top: 80px">Snabbt, smidigt och enkelt.</h2>
+    <RowButColumnOnMobile style="gap: 30px">
+        <GrayBox style="flex: 1">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 25px; height: 100%">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap">
+                    <Chip variant="flair-toned-down">Engångsbetalning</Chip>
+                    <Chip>{PRICE_EXCL_VAT} kr ex. moms</Chip>
+                </div>
+                <h3>Betala först när du är nöjd</h3>
+                <p>Gör klart din årsredovisning på 15-minuter och betala först när du är klar.</p>
+                <LinkButton
+                    href={getAppUrl()}
+                    kind="filled"
+                    style="font-weight: 500; font-size: 17px"
+                    class="ga-begin-signup">Prova tjänsten kostnadsfritt</LinkButton
+                >
+            </div>
+        </GrayBox>
+        <GrayBox style="flex: 1">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 25px">
+                <div style="display: flex; gap: 10px">
+                    <Chip variant="flair-toned-down">Testa helt kostnadsfritt!</Chip>
+                </div>
+                <h3>Behöver du hjälp?</h3>
+                <p>
+                    Om du känner dig osäker och behöver hjälp med att använda tjänsten, ta kontakt med oss så återkommer
+                    vi så snart vi kan. Behöver du däremot finansiell rådgivning eller hjälp med rättelser i din
+                    bokföring så ber vi dig istället att vända dig till en redovisningskonsult.
+                </p>
+                <LinkButton href="#kontakt" kind="ghost" style="font-weight: 500; font-size: 17px">
+                    Ta kontakt och få hjälp
+                </LinkButton>
+            </div>
+        </GrayBox>
+    </RowButColumnOnMobile>
+    <GrayBox style="background: transparent; border: 3px dashed #17cf8c; padding: 10px; width: 100%">
+        <h3 style="margin-left: 30px; margin-top: 25px">Är vi rätt för dig?</h3>
+        <p
+            class="headline-text"
+            style="font-size: 1.2rem; margin-left: 30px; max-width: 500px; text-wrap: balance; margin-top: 20px"
+        >
+            Om de positiva punkterna nedan passar in på dig så har du hittat rätt.
+        </p>
+        <ul
+            style="margin-left: 30px; padding-left: 0px; margin-top: 25px; margin-bottom: 35px; display: flex; flex-direction: column; gap: 16px; font-size: 0.9rem; font-weight: 600; text-wrap: balance"
+        >
+            <ItemChecked>Du vill slippa krångliga uträkningar</ItemChecked>
+            <ItemChecked>Du vill att det skall gå snabbt och smidigt att lämna in årsredovisningen</ItemChecked>
+            <ItemChecked>Du vill slippa all stress och oro över att årsedovisningen skall bli rätt</ItemChecked>
+            <ItemChecked>Du vill prova kostnadsfritt innan du bestämmer dig</ItemChecked>
+            <ItemChecked>Du vill vara helt nöjd med årsredovisningen innan du betalar</ItemChecked>
+            <ItemChecked>Du är söker ett prisvärt verktyg utan månadskostnad</ItemChecked>
+            <ItemCrossed>Du har en annan bolagsform än aktiebolag</ItemCrossed>
+            <ItemCrossed>Du är ett större aktiebolag med komplexa krav på årsredovisningen</ItemCrossed>
+            <ItemCrossed>Du vill låta någon annan sköta årsredovisningen</ItemCrossed>
+        </ul>
+        <p class="headline-text" style="font-size: 1.2rem; margin-left: 30px; max-width: 800px; text-wrap: balance">
+            Är vi en match? Testa vår tjänst kostnadsfritt utan förpliktelser, vi är övertygade om att du kommer gilla
+            den.
+        </p>
+        <GrayBox style="margin-top: 40px; text-wrap: balance">
+            <h3 style="text-wrap: balance">Redo att lämna in din årsredovisning?</h3>
+            <br />
+            <LinkButton href="#kontakt" kind="filled" style="font-weight: 500; font-size: 17px" class="ga-begin-signup">
+                Prova tjänsten kostnadsfritt
+            </LinkButton>
+        </GrayBox>
+    </GrayBox>
+</div>

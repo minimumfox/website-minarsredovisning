@@ -1,0 +1,20 @@
+---
+const { class: className, ...rest } = Astro.props
+---
+
+<style>
+    .container {
+        display: flex;
+        gap: 10px;
+    }
+
+    @media (max-width: 1000px) {
+        .container {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<div class:list={['container', className]} {...rest}>
+    <slot />
+</div>

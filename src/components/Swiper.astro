@@ -1,0 +1,42 @@
+---
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+---
+
+<style>
+    :root {
+        --swiper-theme-color: #999;
+        --swiper-navigation-size: 25px;
+    }
+    .swiper {
+        width: clamp(100px, 100%, 800px);
+    }
+</style>
+<div class="swiper" {...Astro.props}>
+    <div class="swiper-wrapper">
+        <slot />
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
+<script>
+    // @ts-ignore
+    import Swiper from 'swiper/bundle'
+    new Swiper('.swiper', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: true,
+        },
+    })
+</script>

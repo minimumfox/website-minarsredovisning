@@ -1,0 +1,18 @@
+---
+import GrayBox from '../components/Card.astro'
+import { SITE_EMAIL } from '../siteConfig.ts'
+const { style, class: className, ...rest } = Astro.props
+---
+
+<style>
+    @media (min-width: 640px) {
+        .kontakt-info {
+            margin-top: 50px;
+            height: 296px;
+        }
+    }
+</style>
+<GrayBox class:list={['kontakt-info', className]} style={`${style}`} {...rest}>
+    <h4>Kontaktinformation</h4>
+    <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>
+</GrayBox>

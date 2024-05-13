@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets'
+
+const { src, width, height, class: classList, ...rest } = Astro.props
+---
+
+<style>
+    .collage-image {
+        object-fit: cover;
+        border-radius: 12px;
+        width: 100%;
+        max-height: 30vh;
+    }
+</style>
+<Image
+    src={src}
+    width={900}
+    height={height}
+    densities={[1, 1.5, 2]}
+    alt=""
+    class:list={['collage-image', classList]}
+    {...rest}
+/>

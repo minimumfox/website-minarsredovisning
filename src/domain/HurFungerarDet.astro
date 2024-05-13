@@ -1,0 +1,58 @@
+---
+import IconBadge from '../components/IconBadge.astro'
+import DoubleChevronUpIcon from '../icons/DoubleChevronUpIcon.astro'
+import PenIcon from '../icons/PenIcon.astro'
+import MagnifyingGlassIcon from '../icons/MagnifyingGlassIcon.astro'
+import BoxWithIconAndTitle from '../components/BoxWithIconAndTitle.astro'
+import LinkButton from '../components/LinkButton.astro'
+import RowButColumnOnMobile from '../components/RowButColumnOnMobile.astro'
+import { getAppUrl } from '../siteConfig'
+---
+
+<div id="fungerar" style="display: flex; flex-direction: column; align-items: center; gap: 45px; padding-bottom: 40px">
+    <h3 style="font-size: 32px">Hur fungerar det?</h3>
+    <div style="max-width: 730px">
+        Ladda upp din bokföring till oss för att skapa din årsredovisning (K2). Du kompletterar och godkänner sen
+        årsredovisningen steg för steg. Årsredovisning och deklaration signeras med BankID och skickas in digitalt till
+        Bolagsverket/Skatteverket.
+    </div>
+    <RowButColumnOnMobile style="gap: 40px">
+        <BoxWithIconAndTitle>
+            <IconBadge slot="icon">
+                <DoubleChevronUpIcon />
+            </IconBadge>
+            <div slot="title">Snabbt och enkelt</div>
+            <div>
+                <p>
+                    Exportera din bokföring till en SIE4-fil som du laddar upp till oss (det går också att börja med en
+                    tom årsredovisning). Vår tjänst kör ett antal automatiska kontroller som hjälper dig upprätta en
+                    godkänd årsredovisning.
+                </p>
+            </div>
+        </BoxWithIconAndTitle>
+        <BoxWithIconAndTitle>
+            <IconBadge slot="icon">
+                <PenIcon />
+            </IconBadge>
+            <div slot="title">Korrekta beräkningar</div>
+            <div>
+                Tjänsten beräknar årets skatt/resultat och du får möjlighet att kontrollera och justera alla siffror om
+                du önskar (det fungerar också att bokföra årets result/skatt i förväg om du föredrar). Vi skapar också
+                en tillhörande deklaration (INK2).
+            </div>
+        </BoxWithIconAndTitle>
+        <BoxWithIconAndTitle>
+            <IconBadge slot="icon">
+                <MagnifyingGlassIcon />
+            </IconBadge>
+            <div slot="title">Förhandsvisa</div>
+            <div>
+                Medan du fyller i dina uppgifter ser du hela tiden en förhandsvisning av det färdiga dokumentet och du
+                betalar först i slutet när du är nöjd med din årsredovisning.
+            </div>
+        </BoxWithIconAndTitle>
+    </RowButColumnOnMobile>
+    <LinkButton href={getAppUrl()} kind="filled" style="font-weight: 500; font-size: 17px" class="ga-begin-signup">
+        Prova kostnadsfritt direkt
+    </LinkButton>
+</div>

@@ -1,0 +1,29 @@
+---
+const { class: className, style, variant = 'neutral', ...rest } = Astro.props
+
+const NEUTRAL_BGCOLOR = '#dce0df'
+const NEUTRAL_COLOR = 'var(--headings-color)'
+
+let bgcolor = NEUTRAL_BGCOLOR
+let textcolor = NEUTRAL_COLOR
+if (variant === 'flair') {
+    bgcolor = '#dcffeb'
+    textcolor = 'rgb(43, 207, 147)'
+} else if (variant === 'flair-toned-down') {
+    bgcolor = '#dcffeb'
+    textcolor = 'var(--headings-color)'
+}
+---
+
+<style>
+    .chip {
+        display: inline-block;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 6px 12px;
+    }
+</style>
+<span class:list={['chip', className]} style={`background-color: ${bgcolor}; color: ${textcolor}; ${style}`} {...rest}>
+    <slot />
+</span>

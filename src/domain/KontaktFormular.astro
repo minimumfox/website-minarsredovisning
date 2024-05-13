@@ -1,0 +1,43 @@
+---
+import Button from '../components/Button.astro'
+import FormInput from '../components/FormInput.astro'
+import FormTextarea from '../components/FormTextarea.astro'
+import { getAppUrl } from '../siteConfig.ts'
+const APP_URL = getAppUrl()
+---
+
+<div id="kontakt" {...Astro.props}>
+    <h3>Ta kontakt med oss</h3>
+    <form id="contactform">
+        <div id="form_msg" style="display: none; height: 250px; place-content: center; font-weight: bold">
+            Ditt meddelande har skickats.
+        </div>
+        <div id="form_input" style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px">
+            <FormInput name="firstName" style="grid-column: span 6" placeholder="Förnamn" />
+            <FormInput name="lastName" style="grid-column: span 6" placeholder="Efternamn" />
+            <FormInput name="email" style="grid-column: span 12" placeholder="E-mail" />
+            <FormTextarea name="message" style="grid-column: span 12" rows="5" placeholder="Meddelande" />
+            <Button
+                kind="filled"
+                type="submit"
+                style="grid-column: -2; font-weight: 500; font-size: 17px; margin-bottom: 10px"
+            >
+                Skicka
+            </Button>
+        </div>
+    </form>
+    <script is:inline define:vars={{ APP_URL }}>
+        document.getElementById('contactform')?.addEventListener('submit', async (ev) => {
+            ev.preventDefault()
+            document.getElementById('form_input').style.display = 'none'
+            document.getElementById('form_msg').style.display = 'grid'
+            await fetch(`${APP_URL}/api/contact-us`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(Object.fromEntries(new FormData(ev.target))),
+            })
+        })
+    </script>
+</div>

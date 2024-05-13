@@ -1,0 +1,61 @@
+---
+import ChevronRight from '../icons/ChevronRight.astro'
+import CrossedIcon from '../icons/CrossedIcon.astro'
+import IconBadge from './IconBadge.astro'
+const { title, ...rest } = Astro.props
+---
+
+<style>
+    details summary::-webkit-details-marker {
+        display: none;
+    }
+    details {
+        width: 100%;
+        max-width: 600px;
+        cursor: pointer;
+        padding-left: 10px;
+    }
+    details > summary {
+        list-style: none; /* doesn't work on iPhone 13 so we also need webkit-details-marker hack above */
+        font-size: 20px;
+        font-weight: 600;
+        user-select: none;
+    }
+    details:not(:first-child) {
+        padding-top: 12px;
+        border-top: 1px solid #ccc;
+        padding-bottom: 12px;
+    }
+    .icon-chevron {
+        transform: rotateZ(90deg);
+    }
+    details[open] .icon-chevron {
+        display: none;
+    }
+    details:not([open]) .icon-crossed {
+        display: none;
+    }
+    .icon-badge:hover {
+        background: #e3e3e3;
+    }
+    .summary-text {
+        color: var(--headings-color);
+    }
+    .icon {
+        color: #888;
+    }
+</style>
+<details {...rest}>
+    <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px">
+        <div class="summary-text">{title}</div>
+        <div class="icon">
+            <IconBadge class="icon-badge" style="width: 52px; color: inherit">
+                <ChevronRight class="icon-chevron" />
+                <CrossedIcon class="icon-crossed" style="font-size: 0.8em" />
+            </IconBadge>
+        </div>
+    </summary>
+    <div style="padding: 10px; padding-right: 30px">
+        <slot />
+    </div>
+</details>

@@ -1,0 +1,253 @@
+---
+title: 'Skapa årsredovisning själv steg-för-steg'
+description: 'Här beskriver vi vad du behöver göra för att skapa en årsredovisning åt ditt aktiebolag'
+pubDate: '2024-05-17'
+updatedDate: '2024-05-18'
+heroImage: '../../static/hero-1.webp'
+---
+
+import { getAppUrl } from '../../siteConfig.ts'
+import Screenshot from '../../components/Screenshot.astro'
+import imgValjSieFil from './skapa-arsredovisning-valj-sie-fil.png'
+import imgAppen from './skapa-arsredovisning-appen.png'
+import imgResultat from './skapa-arsredovisning-resultat.png'
+import imgNoter from './skapa-arsredovisning-noter.png'
+import imgKlar from './skapa-arsredovisning-klar.png'
+
+<p>
+    Denna guide beskriver hur man upprättar en årsredovisning åt mindre aktiebolag (K2) med hjälp av verktyget{' '}
+    <a href={getAppUrl()}>Min Årsredovisning</a>.
+</p>
+
+<br />
+
+<h3>Förberedelser</h3>
+
+<p>
+    Innan du börjar arbetet med årsredovisningen så kontrollerar du att bokföringen är komplett. Tänk till exempel på
+    följande:
+</p>
+
+<ul>
+    <li>Du har betalat, fakturerat och **bokfört allt** som har med året att göra</li>
+    <li>Gör en sista **kontoavstämning** för samtliga konto</li>
+    {/* prettier-ignore */}
+    <ul>
+        <li>Saldo på varje bankkonto ska stämma med saldo på motsvarande bokföringskonto i balansräkningen (t ex 1930 osv)</li>
+        <li>Saldo på skattekontot (logga in på Mina Sidor på Skatteverket) ska stämma med saldo på bokföringskonto 1630</li>
+        <li>osv</li>
+    </ul>
+    <li>**Stäng din sista momsperiod** (samt lämna in momsdeklaration)</li>
+    <li>Stäm av och bokför eventuella justeringar av poster i företagets balansräkning. Exempelvis:</li>
+    {/* prettier-ignore */}
+    <ul>
+        <li>Om du har anläggningstillgångar som tex maskiner eller inventarier så skall du **bokföra årets avskrivningar**</li>
+        <li>Om du har varulager behöver du inventera</li>
+        <li>Eventuella nedskrivningar om sådana behövs</li>
+        <li>Uppskrivningar (görs inom K2 enbart för byggnader och mark)</li>
+        <li>osv osv</li>
+    </ul>
+</ul>
+{/* prettier-ignore */}
+<p>
+    Det finns mycket bra <a href="https://www.bing.com/search?q=checklista+f%C3%B6r+%C3%A5rsbokslut">information om årsbokslut</a>
+    på webben för den som behöver läsa på lite.
+</p>
+
+Allt bokföringsarbete skall vara färdigt innan du påbörjar årsredovisningen, men vår tjänst hjälper dig att räkna ut och
+bokföra årets skatt/resultat samt eventuell förändring av periodiseringsfonder.
+
+<h3>Exportera din bokföring till en SIE4-fil</h3>
+<p>
+    Exakt hur man exporterar en SIE4-fil skiljer sig lite beroende på vilket bokföringsprogram man använder. Kom ihåg
+    att välja det räkenskapsår som du ska göra årsredovisning för. Instruktioner från respektive leverantör:
+    {/* prettier-ignore */}
+    <ul>
+        <li>[Bokio](https://www.bokio.se/hjalp/bokforing/exportera-bokforing/hur-exporterar-jag-bokforing-fran-bokio/)</li>
+        <li>[Dooer](https://www.dooer.com/hjalp/bokforing/fragor-och-svar/hur-exporterar-jag-min-bokforing)</li>
+        <li>[Fortnox](https://support.fortnox.se/sv_SE/sie-filer/exportera-sie-fil)</li>
+        <li>[Visma eEkonomi](https://www.vismaspcs.se/visma-support/visma-eaccounting/se/content/online-help/settings-import-export-accounting-data-export.htm) eller [Visma Administration](https://www.vismaspcs.se/visma-support/visma-administration-500/content/online-help/export-sie.htm)</li>
+        <li>[Wrebit](https://wrebit.se/sie/)</li>
+    </ul>
+</p>
+
+<h3>Importera SIE-fil i vår tjänst</h3>
+<p>
+    Nästa steg är att importera din SIE-fil till vår tjänst <a href={getAppUrl()}>Min Årsredovisning</a>. Om du redan
+    har ett konto hos oss, klickar du istället på "Ny årsredovisning" i menyn längst upp till höger. Första gången du
+    laddar upp en SIE-fil till oss så skapar vi ett konto åt dig, men för att kunna logga in igen i framtiden behöver du
+    först bekräfta din e-post adress (detta gör du under fliken Kontoinformation).
+    <a href={getAppUrl()}>
+        <Screenshot img={imgValjSieFil} />
+    </a>
+    Om du inte har en SIE-fil tillgänglig kan du istället klicka på länken "starta med en tom årsredovisning" nedanför
+    formuläret och endast fylla i ditt organisationsnummer. Att starta utan SIE-fil innebär betydligt mer arbete för
+    användaren och ökar risken för fel. Om du har problem med att exportera din SIE-fil är det bättre att du{' '}
+    <a href="/#kontakt">kontaktar</a> oss så hjälper vi dig.
+</p>
+
+<h3>Arbeta med årsredovisningen</h3>
+<p>
+    Väl inne i applikationen så behöver du gå igenom din årsredovisning i nio enkla steg (se flikarna längst till
+    vänster i appen). Du kompletterar och godkänner varje del av årsredovisningen. Våra automatiska kontroller hjälper
+    dig upptäcka vanliga fel. Betalning sker först i steg 8 när du har godkänt de första sju flikarna. Problem som måste
+    åtgärdas innan du kan godkänna fliken visas i en ruta längst ner.
+</p>
+<Screenshot img={imgAppen} />
+<p>
+    På det sista steget så kan du skriva ut din årsredovisning som PDF och även skicka in den digitalt till Bolagsverket
+    och signera med BankID. Vår tjänst visar hur ska bokföra årets skatt/resultat i ditt bokföringsprogram efter
+    inlämningen är klar. Vi skapar även en enklare tillhörande deklaration (INK2) som även den går att skicka in
+    digitalt till Skatteverket för signering med BankID.
+</p>
+<p>
+    Om du fastnar på något steg, tveka inte att <a href="/#kontakt">kontakta oss</a> så hjälper vi dig framåt.
+</p>
+
+<br />
+<br />
+
+<h3>Vad behöver man fylla i på respektive flik?</h3>
+
+<br />
+<h4>Flik 1) Importera bokföring</h4>
+<p>
+    På den första fliken kan du importera en SIE-fil om du började med en tom årsredovisning men har ändrat dig och
+    istället vill läsa in en SIE-fil. Om våra automatiska bokföringskontroller hittar problem i bokföringen så visas
+    även dessa på första fliken. Problemen kan t ex vara:
+    {/* prettier-ignore */}
+    <ul>
+        <li>Att man har glömt att stänga sin sista momsperiod</li>
+        <li>Att man har bokfört på ett konto som inte ingår i den senaste versionen av BAS-kontoplanen.
+        Vår applikation frågar då hur det kontot skall hanteras.</li>
+        <li>Det kan också vara att förra årets resultat ligger kvar på konto 2099, dvs du har glömt att bokföra resultatdispositionen från förra årsstämman.</li>
+    </ul>
+    Om du åtgärdar problem i din bokföring så exporterar du sedan en ny SIE-fil som du kan läsa in direkt från fliken "Importera
+    bokföring".
+</p>
+
+<h4>Flik 2) Företagsinformation</h4>
+<p>
+    Här kontrollerar du företagsnamn, antal räkenskapsår och företagets företrädare. Endast företrädare som ska signera
+    årsredovisningen behöver vara med i listan. Styrelsesuppleanter signerar normalt inte årsredovisningen men kan
+    läggas till i listan om de ersätter en ordinarie styrelseledamot.
+</p>
+
+<h4>Flik 3) Resultaträkning</h4>
+<p>
+    Vår tjänst sammanställer automatiskt årets resultaträkning baserat på den SIE-fil som har laddat upp. Notera att
+    fältet "Årets skatt" är en preliminär siffra som kan komma att ändras baserat på justeringar du gör senare på fliken
+    "Skatteberäkning".
+</p>
+<p>
+    Om det inte är företagets första räkenskapsår så behöver resultaträkningen också jämförelsetal från räkenskapsåret
+    innan. Om du använde Min Årsredovisning även förra året så hämtar vi automatiskt dessa siffror från din tidigare
+    årsredovisning, annars fyller du i jämförelsetalen manuellt (du hittar rätt siffror i årsredovisningen från förra
+    året).
+</p>
+
+<Screenshot img={imgResultat} />
+
+<br />
+<h4>Flik 3) Balansräkning</h4>
+<p>Vår tjänst sammanställer automatiskt årets balansräkning baserat på den SIE-fil som har laddats upp.</p>
+<p>
+    Om det inte är företagets första räkenskapsår så behöver balansräkningen också jämförelsetal från räkenskapsåret
+    innan. Om du använde Min Årsredovisning även förra året så hämtar vi automatiskt dessa siffror från din tidigare
+    årsredovisning, annars fyller du i jämförelsetalen manuellt (du hittar rätt siffror i årsredovisningen från förra
+    året).
+</p>
+
+<h4>Flik 5) Skatteberäkning</h4>
+<p>
+    Här kontrollerar och justerar du din skatteberäkning.
+    {/* prettier-ignore */}
+    <ul>
+        <li>Kostnader bokförda på konton som är markade "ej avdragsgilla" räknas samman till fält 4.3 C) på INK2S-blanketten i din deklaration</li>
+        <li>Har du skattefria ränteintäkter bokförda på 8314 läggs dessa automatiskt in på fält 4.5 C) på INK2S.</li>
+        <li>Du väljer om du vill göra avsättning till eller återföring från periodiseringsfonder och vår tjänst räknar ut "Schablonintäkt på kvarvarande periodiseringsfonder" och "Uppräknat belopp vid återföring" automatiskt.</li>
+        <li>Om företaget gick med förlust förra året kan du sänka din skatt genom att kopiera över förlusten från fält 1.2 i förra årets deklaration till fält 14.4 A) Outnyttjat underskott från föregående år</li>
+        <li>Du ska även fylla i "Lån från aktieägare" om sådana lån finns.</li>
+    </ul>
+    Baserat på detta sammanställer vi sedan en deklaration (INK2, INK2R, INK2S). För enkla aktiebolag räcker detta och inga
+    justeringar eller tillägg behövs, men för andra aktiebolag behöver man fylla i fler fält.
+</p>
+<p>
+    Notera att vår tjänst räknar INTE ut alla fält till din deklaration automatiskt. Du behöver själv gå igenom din
+    deklaration för att kontrollräkna och komplettera. Om du aktiverar funktionen "Visa alla fält" så finns möjlighet
+    att fylla i ytterligare fält (tex om du har tjänstepension och vill fylla i 1.5, 1.6 eller 4.21).
+</p>
+<p>
+    Det finns även fält och bilagor (tex N4, N8, N3B, N7) till INK2 som inte går att lämna in via vår tjänst. Om ditt
+    företag behöver lämna en mer komplicerad deklaration så kan du fortfarande skicka in årsredovisning genom vår
+    tjänst; du skippar då att trycka på knappen "Ladda upp deklaration till Skatteverket" på flik 9 och skickar istället
+    in INK2 på papper. Från slutet av 2024 kommer Skatteverket även erbjuda en digital inlämningstjänst för INK2.
+</p>
+
+<h4>Flik 6) Förvaltningsberättelse</h4>
+<p>
+    I fältet "Allmänt om verksamheten" lämnar du en kort beskrivning företagets verksamhet under räkenskapsåret samt
+    omständigheter som påverkar företaget.
+</p>
+<p>
+    I fältet "Väsentliga händelser under räkenskapsåret" beskrivs beslut, förändringar och händelser (interna och
+    externa) som har stor påverkan på företagets ställning och resultat. Exempel på saker som måste tas upp är:
+    {/* prettier-ignore */}
+    <ul>
+    <li>Nya eller avvecklade verksamhetsgrenar</li>
+    <li>Om företaget är skyldigt att upprätta (eller har upprättat) kontrollbalansräkning</li>
+    <li>Om företaget förutsätts ej fortsätta sin verksamhet (tex beslutad likvidation eller konkurs)</li>
+    <li>Stora förvärv/avyttringar/avtal/investeringar</li>
+    <li>Stora förändringar i externa faktorer tex valutakurser, råvaruförsörjning, lagstiftning eller marknadsförhållanden</li>
+    </ul>
+</p>
+<p>
+    Flerårsöversikten kompletteras med jämförelsetal Om företaget betalade utdelning förra året så anges hur stor
+    utdelningen var i fältet "Utdelning som har utbetalats".
+</p>
+
+<p>Om du vill besluta om ny utdelning vid årsstämman anger du detta i fältet "Förslag till ny utdelning".</p>
+
+<h4>Flik 7) Noter</h4>
+
+<p>
+    Här fyller du i information om redovisningsprinciper, samt mer detaljerad information om vissa poster i resultat-
+    och balansräkningen. Ju fler poster du har ju fler notera behöver du fylla i. Till exempel, om du har "Maskiner och
+    andra tekniska anläggningar" i din balansräkning så kommer programmet automatiskt infoga en not för detta där du
+    behöver ange bland annat inköp, försäljningar och avskrivningar.
+</p>
+
+<Screenshot img={imgNoter} />
+
+<p>
+    Det finns även några noter som inte kan infogas automatiskt. Dessa lägger du till vid behov via knappen "Visa fler
+    noter" i övre högra hörnet. Detta gäller exempelvis:
+    <ul>
+        <li>Ställda säkerheter</li>
+        <li>Eventualförpliktelser</li>
+        <li>Upplysning om moderföretag</li>
+        <li>Väsentliga händelser EFTER räkenskapsårets slut</li>
+        <li>Andra övriga upplysningar</li>
+    </ul>
+</p>
+
+<h4>Flik 8) Färdigställ</h4>
+<p>
+    Nu är din årsredovisning nästan klar. I detta steget betalar du och sedan kan du välja datum för årsstämma samt vem
+    som skall signera fastställelseintyget.
+</p>
+
+<h4>Flik 9) Dokument</h4>
+<p>
+    Här kan du ladda hem din årsredovisning som PDF, skicka in digitalt till Bolagsverket/Skatteverket. Du får även
+    hjälp med hur dom ska bokföra årets skatt/resultat och din resultdisposition.
+    <Screenshot img={imgKlar} />
+</p>
+
+<h4>Flik K) Kontoinformation</h4>
+
+<p>
+    På denna fliken kan du bekräfta din e-postadress. Detta krävs för att du ska kunna logga in på ditt konto hos Min
+    Årsredovisning i framtiden. Du behöver inget lösenord, vid inloggning skickar vi en inloggningslänk till din
+    bekräftade e-postadress.
+</p>

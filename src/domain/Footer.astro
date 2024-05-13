@@ -1,0 +1,57 @@
+---
+import ShapeBox from '../components/ShapeBox.astro'
+import LinkButtonSocial from '../components/LinkButtonSocial.astro'
+import LogoAndName from '../domain/LogoAndName.astro'
+import { SITE_EMAIL, LOGIN_URL, SOCIAL_LINKEDIN_URL, SOCIAL_FACEBOOK_URL, getAppUrl } from '../siteConfig.ts'
+import RowButColumnOnMobile from '../components/RowButColumnOnMobile.astro'
+const today = new Date()
+---
+
+<style>
+    footer {
+        padding: 2em 1em 6em 1em;
+    }
+    .main-footer-area {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-areas: '1 2 3 4 4';
+        height: 300px;
+        gap: 75px;
+    }
+</style>
+<footer>
+    <ShapeBox>
+        <RowButColumnOnMobile style="gap: 40px; align-items: flex-start">
+            <div style="display: flex; flex-direction: column; gap: 15px">
+                <div style="margin-top: 60px">
+                    <LogoAndName logoSize={30} style="font-size: 20px; text-wrap: nowrap" />
+                </div>
+                <div class="headline-text" style="text-wrap: balance; margin-top: 25px">
+                    P3G Innovation AB <a style="text-wrap: nowrap; color: var(--headings-color)">(559378-7848)</a>
+                </div>
+                <div>{SITE_EMAIL}</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+                <div class="headline-text" style="margin-bottom: 15px">Navigering</div>
+                <div><a href="/">Start</a></div>
+                <div><a href="/artiklar">Kunskapsbank</a></div>
+                <div><a href={LOGIN_URL}>Logga in</a></div>
+                <div><a href="/#faq">Vanliga frågor</a></div>
+                <div><a href="/#kontakt">Kontakt</a></div>
+            </div>
+            <div>
+                <div class="headline-text">Integritet</div>
+                <div><a href={`${getAppUrl()}/personuppgiftspolicy`}>Personuppgiftspolicy</a></div>
+            </div>
+            <div style="height: 80px"></div>
+        </RowButColumnOnMobile>
+        <div slot="bottom-right">
+            <div style="display: flex; gap: 10px">
+                <LinkButtonSocial icon="li" href={SOCIAL_LINKEDIN_URL} />
+                <LinkButtonSocial icon="fb" href={SOCIAL_FACEBOOK_URL} />
+            </div>
+        </div>
+    </ShapeBox>
+    <div style="margin-top: 5px; text-align: center">&copy; {today.getFullYear()} P3G Innovation AB</div>
+    <br />
+</footer>

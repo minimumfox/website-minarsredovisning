@@ -1,0 +1,49 @@
+---
+import Chip from '../../components/Chip.astro'
+import { Image } from 'astro:assets'
+import Swiper from '../../components/Swiper.astro'
+import SwiperSlide from '../../components/SwiperSlide.astro'
+import Testimonial from '../../components/Testimonial.astro'
+import sara from './sara.jpg'
+import jane from './jane.jpg'
+---
+
+<style>
+    .testimonial-image {
+        object-fit: cover;
+        border-radius: 100%;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<div style="display: flex; flex-direction: column; align-items: center; text-wrap: balance">
+    <Chip variant="flair">Recensioner</Chip>
+    <h2 style="text-align: center">Några ord från våra användare</h2>
+
+    <Swiper style="margin-top: 40px">
+        <SwiperSlide
+            ><Testimonial>
+                <div slot="quote">
+                    Vilken grej! Här har jag betalt tusentals kronor till revisorn varje år för ett arbete som jag
+                    upplevt som krångligt. Nu kan jag göra det själv på några minuter - både årsredovisningen och
+                    deklarationen. Mycket snyggt, enkelt och pedagogiskt upplagt. På återseende!
+                </div>
+                <div slot="name">Sara von Ahn</div>
+                <div slot="company">von Ahns Entreprenad AB</div>
+                <Image slot="image" src={sara} alt="" class="testimonial-image" />
+            </Testimonial></SwiperSlide
+        >
+        <SwiperSlide
+            ><Testimonial>
+                <div slot="quote">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra.
+                    Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing.
+                </div>
+                <div slot="name">Jane Doe</div>
+                <div slot="company">Testföretaget AB</div>
+                <Image slot="image" src={jane} alt="" class="testimonial-image" />
+            </Testimonial></SwiperSlide
+        >
+    </Swiper>
+</div>

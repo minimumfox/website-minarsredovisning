@@ -1,0 +1,127 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Section from '../components/Section.astro'
+import Footer from '../domain/Footer.astro'
+import FormattedDate from '../components/FormattedDate.astro'
+import Chip from '../components/Chip.astro'
+import { Image } from 'astro:assets'
+import Card from '../components/Card.astro'
+import LinkWithArrow from '../components/LinkWithArrow.astro'
+import { getAppUrl } from '../siteConfig'
+import RowButColumnOnMobile from '../components/RowButColumnOnMobile.astro'
+
+type Props = CollectionEntry<'articles'>['data']
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+const heroImageSrcUrl = `url(${heroImage?.src ?? ''})`
+---
+
+<html lang="sv">
+    <head>
+        <BaseHead title={title} description={description} />
+        <style define:vars={{ heroImageSrcUrl }}>
+            .hero-image {
+                background-image: var(--heroImageSrcUrl);
+                background-position-x: 50%;
+                background-position-y: 50%;
+                background-size: cover;
+                height: 23vh;
+            }
+            .main-layout {
+                max-width: calc(var(--section-width) - 180px);
+                margin: auto;
+                display: flex;
+            }
+            .content-area {
+                background: var(--body-bgcolor);
+                padding: 2em;
+                flex: 1;
+                border-radius: 10px;
+            }
+            @media (max-width: 640px) {
+                .main-layout {
+                    flex-direction: column;
+                }
+                .content-area {
+                    padding: 1em;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <Header />
+        <main>
+            <article>
+                <div class="hero-image" style="position: relative">
+                    <div
+                        style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: #00000066; z-index: 1"
+                    >
+                    </div>
+                    <div
+                        style="position: relative; z-index: 2; height: 90%; display: flex; flex-direction: column; justify-content: center; align-items: center"
+                    >
+                        <h2 style="color: #f1f1f1; font-weight: 800; text-align: center">{title}</h2>
+                        <div
+                            style="background: #00000088; color: #f1f1f1; font-weight: 500; border-radius: 64px; padding: 3px 15px"
+                        >
+                            <FormattedDate date={updatedDate || pubDate} />
+                        </div>
+                    </div>
+                </div>
+                <div style="background: #ecf0ee; padding-top: 20px; padding-bottom: 50px">
+                    <div class="main-layout">
+                        <div class="content-area">
+                            <slot />
+                        </div>
+                        <div style="width: 400px; display: flex; padding-left: 30px; gap: 10px">
+                            <div>
+                                <Image
+                                    src={heroImage}
+                                    width={120}
+                                    height={120}
+                                    densities={[1.5, 2]}
+                                    alt=""
+                                    style="object-fit: cover; border-radius: 8px; border: 1px solid #00000017"
+                                />
+                            </div>
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: start">
+                                <Chip style="display: block; margin-top: 5px"
+                                    ><FormattedDate date={updatedDate || pubDate} /></Chip
+                                >
+                                <div
+                                    style="font-size: 21px; font-weight: 700; color: var(--headings-color); margin-top: 5px; margin-left: 5px"
+                                >
+                                    {title}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <br />
+        <Section>
+            <Card style="margin: auto; max-width: 1000px; padding: 60px">
+                <RowButColumnOnMobile style="gap: 20px">
+                    <div style="flex:1; display: grid; place-content: center">
+                        <h4>Testa vår plattform kostnadsfritt!</h4>
+                    </div>
+                    <div style="flex:1; display: flex; flex-direction: column; gap: 20px">
+                        Med vår plattform kan du ladda upp din bokföring, förhandsvisa din årsredovisning och sedan
+                        skicka in digitalt direkt till Bolagsverket samt Skatteverket. <strong>
+                            Betala först när du är 100% nöjd vill lämna in.
+                        </strong>
+                        <LinkWithArrow href={getAppUrl()}>Bli klar med årsredovisningen på 15 minuter</LinkWithArrow>
+                    </div>
+                </RowButColumnOnMobile>
+            </Card>
+        </Section>
+        <br /><br /><br />
+        <Section>
+            <Footer />
+        </Section>
+    </body>
+</html>

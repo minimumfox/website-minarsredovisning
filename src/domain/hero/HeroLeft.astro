@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets'
+import Chip from '../../components/Chip.astro'
+import LinkButton from '../../components/LinkButton.astro'
+import betalaForstNarArsredovisningArFardig from './betala-forst-nar-arsredovisningen-ar-fardig.png'
+import { getAppUrl } from '../../siteConfig'
+
+const { style, ...rest } = Astro.props
+---
+
+<style>
+    @media (max-width: 1000px) {
+        .betala-fardig-pil {
+            display: none;
+        }
+    }
+</style>
+<div {...rest} style={`display: flex; justify-content: center; ${style}`}>
+    <div
+        style="display: flex; flex-direction: column; align-items: start; justify-content: center; height: 100%; width: 100%"
+    >
+        <Chip variant="flair" style="margin-bottom: 10px">Bli klar inom 15 minuter!</Chip>
+        <h1 style="line-height: 1.1; margin: 0; text-wrap: balance">
+            <span>Lämna in årsredovisningen</span>
+            <span style="color: var(--accent-color)">snabbt och enkelt.</span>
+        </h1>
+        <p
+            style="display: block; width: 100%; margin-top: 30px; margin-bottom: 40px; text-wrap: balance; font-size: 18px; color: #5f6563"
+        >
+            Hos oss kan du upprätta din årsredovisning själv (även INK2 ingår) och skicka in digitalt direkt till
+            Bolagsverket/Skatteverket.
+        </p>
+        <div style="display: flex; gap: clamp(10px, 10px + 1vw, 20px); font-weight: 500">
+            <LinkButton href={getAppUrl()} class="ga-begin-signup">Prova kostnadsfritt</LinkButton>
+            <LinkButton href="#fungerar" kind="ghost"> Så fungerar det </LinkButton>
+        </div>
+        <div class="betala-fardig-pil">
+            <figure>
+                <div style="position: relative; pointer-events: none">
+                    <div style="position: absolute; width: 250px; height: 250px; left: 130px; top: -30px">
+                        <Image
+                            src={betalaForstNarArsredovisningArFardig}
+                            alt="Betala först när årsredovisningen är färdig"
+                            width={betalaForstNarArsredovisningArFardig.width / 2}
+                            densities={[1.5, 2]}
+                        />
+                    </div>
+                </div>
+            </figure>
+        </div>
+    </div>
+    <style></style>
+</div>

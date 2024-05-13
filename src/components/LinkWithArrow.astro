@@ -1,0 +1,57 @@
+---
+const { className, ...rest } = Astro.props
+---
+
+<style>
+    .link-with-arrow {
+        display: inline-flex;
+        align-items: center;
+    }
+    .un-arrow-icon {
+        position: relative;
+        top: 0.06em;
+        width: 0.7em;
+        height: 0.7em;
+        stroke-width: 2px;
+        stroke: currentColor;
+        fill: none;
+        font-size: inherit;
+    }
+    .un-arrow-icon_line {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .link-with-arrow:hover .un-arrow-icon_line {
+        opacity: 1;
+    }
+    .un-arrow-icon_arrow {
+        transform: translateX(0px);
+        transition: transform 0.3s ease;
+    }
+    .link-with-arrow:hover .un-arrow-icon_arrow {
+        transform: translateX(3px);
+    }
+    .arrow-wrapper {
+        margin-left: 8px;
+    }
+</style>
+<a class:list={['link-with-arrow', className]} {...rest}>
+    <span><slot /></span>
+    <span class="arrow-wrapper">
+        <svg
+            class="un-arrow-icon"
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            aria-hidden="true"
+            width="1em"
+            height="1em"
+            fill="currentColor"
+        >
+            <g fill-rule="evenodd">
+                <path class="un-arrow-icon_line" d="M0 5h7"></path>
+                <path class="un-arrow-icon_arrow" d="M1 1l4 4-4 4"></path>
+            </g>
+        </svg>
+    </span>
+</a>
