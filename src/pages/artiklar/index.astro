@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../../components/BaseHead.astro'
+import BaseBody from '../../components/BaseBody.astro'
 import Header from '../../components/Header.astro'
 import Footer from '../../domain/Footer.astro'
 import Section from '../../components/Section.astro'
@@ -30,7 +31,7 @@ const ARTICLE_CARD_WIDTH = 350
             }
         </style>
     </head>
-    <body>
+    <BaseBody>
         <Header />
         <main>
             <Section>
@@ -71,5 +72,6 @@ const ARTICLE_CARD_WIDTH = 350
         <Section>
             <Footer />
         </Section>
-    </body>
+    </BaseBody>
+
 </html>
