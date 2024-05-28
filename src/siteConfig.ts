@@ -6,6 +6,7 @@ export const LOGIN_URL = 'https://app.minarsredovisning.se/start-email-login'
 export const SOCIAL_FACEBOOK_URL = 'https://www.facebook.com/people/Min-%C3%85rsredovisning/100091410733509/'
 export const SOCIAL_LINKEDIN_URL = 'https://www.linkedin.com/company/min-arsredovisning/'
 
+/* Note: this is the URL to the app, config for the URL to the marketing website is in astro.config.mjs */
 export const getAppUrl = () => {
     if (import.meta.env.TARGET_ENV === 'production') {
         return 'https://app.minarsredovisning.se'
