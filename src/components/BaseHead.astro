@@ -1,6 +1,10 @@
 ---
 import '../global.css'
-import logo from '../static/minarsredovisning-logo.svg'
+import logoSvg from '../static/minarsredovisning-logo.svg'
+import logo180 from '../static/logo-180x180.png'
+import logo16 from '../static/logo-16x16.png'
+import logo32 from '../static/logo-32x32.png'
+import siteManifest from '../static/site.webmanifest'
 interface Props {
     title: string
     description: string
@@ -9,7 +13,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-const { title, description, image = logo.src } = Astro.props
+const { title, description, image = logoSvg.src } = Astro.props
 ---
 
 <!-- Google Tag Manager -->
@@ -28,6 +32,10 @@ const { title, description, image = logo.src } = Astro.props
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="canonical" href={canonicalURL} />
 <meta name="format-detection" content="telephone=no" />
+<link rel="apple-touch-icon" sizes="180x180" href={logo180.src} />
+<link rel="icon" type="image/png" sizes="16x16" href={logo16.src} />
+<link rel="icon" type="image/png" sizes="32x32" href={logo32.src} />
+<link rel="manifest" href={siteManifest} />
 
 <title>{title}</title>
 <meta name="title" content={title} />
