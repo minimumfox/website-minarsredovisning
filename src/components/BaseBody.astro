@@ -1,11 +1,11 @@
 ---
-
+const googleTagManagerContainerId = import.meta.env.TARGET_ENV === 'production' ? 'GTM-KVM228JR' : 'GTM-PJC8RQLS'
 ---
 
 <body>
     <!-- Google Tag Manager (noscript) -->
     <!-- prettier-ignore -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVM228JR"
+    <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${googleTagManagerContainerId}`}
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 

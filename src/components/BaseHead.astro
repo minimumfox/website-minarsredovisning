@@ -12,19 +12,20 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const googleTagManagerContainerId = import.meta.env.TARGET_ENV === 'production' ? 'GTM-KVM228JR' : 'GTM-PJC8RQLS'
 
 const { title, description, image = logoSvg.src } = Astro.props
 ---
 
 <!-- Google Tag Manager -->
-<script>
+<script is:inline define:vars={{ googleTagManagerContainerId }}>
     // @ts-nocheck
     /* prettier-ignore */
     ;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KVM228JR');
+    })(window,document,'script','dataLayer',googleTagManagerContainerId);
 </script>
 <!-- End Google Tag Manager -->
 <script is:inline src="https://www.w3counter.com/tracker.js?id=152554"></script>
