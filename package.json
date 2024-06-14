@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "TARGET_ENV=development astro dev",
         "start": "astro dev",
-        "build": "rm -rf dist/ && astro check && npm run stylelint && TARGET_ENV=${TARGET_ENV:-staging} astro build && echo -n \"$COMMIT_REF\" > dist/revision.txt",
+        "build": "rm -rf dist/ && TARGET_ENV=${TARGET_ENV:-staging} astro check && npm run stylelint && TARGET_ENV=${TARGET_ENV:-staging} astro build && echo -n \"$COMMIT_REF\" > dist/revision.txt",
         "preview": "astro preview",
         "astro": "astro",
         "upgrade-packages": "npm-check --update",
