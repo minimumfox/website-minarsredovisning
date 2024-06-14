@@ -3,7 +3,7 @@
     --section-wavy-color: #f1f4f4;
     --card-bgcolor: #ebf0ee; /* #e5eae8 */
 
-    --text-color: #5f6563;
+    --text-color: #4a4f4d;
     --headings-color: #1a211e;
     --accent-color: #26997b;
     --neutral-chip-color: #dce0df;
@@ -112,4 +112,8 @@ a {
 }
 a:hover {
     color: #12a16d;
+}
+
+td {
+    padding: 0px;
 }

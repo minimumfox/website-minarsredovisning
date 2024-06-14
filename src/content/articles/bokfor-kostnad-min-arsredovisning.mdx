@@ -1,0 +1,42 @@
+---
+title: 'Hur bokför jag kostnaden för Min Årsredovisning?'
+description: 'Här beskriver vi hur du bokför kostnaden för Min Årsredovisning'
+pubDate: '2024-06-14'
+updatedDate: '2024-06-14'
+heroImage: '../../static/hero-man.png'
+---
+
+import ArticleH3 from '../../components/ArticleH3.astro'
+import Verifikat from '../../components/Verifikat.astro'
+import Kontorad from '../../components/Kontorad.astro'
+import { getAppUrl, getPriceInclVat, getPriceExclVat, getPriceVat } from '../../siteConfig.ts'
+import { getDateXDaysFromNow } from '../../utils.ts'
+
+<p>Så här bokför du kostnaden för Min Årsredovisning.</p>
+
+<ArticleH3>Om du har betalt direkt från företagskontot</ArticleH3>
+
+Om du använder bokföringskonto 1930 för ditt företagskonto och betalningen gjordes {getDateXDaysFromNow(0)} så bokför du:
+
+<Verifikat datum={getDateXDaysFromNow(0)} beskrivning="Min Årsredovisning">
+    <Kontorad konto="1930" kontoNamn="Företagskonto" kredit={getPriceInclVat()} />
+    <Kontorad konto="5420" kontoNamn="Programvaror" debet={getPriceExclVat()} />
+    <Kontorad konto="2641" kontoNamn="Ingående moms" debet={getPriceVat()} />
+</Verifikat>
+
+<ArticleH3>Om du har betalt med privat kort eller Swish</ArticleH3>
+
+När köpet görs bokför du:
+
+<Verifikat datum={getDateXDaysFromNow(0)} beskrivning="Utlägg för Min Årsredovisning">
+    <Kontorad konto="2893" kontoNamn="Skulder till närstående personer, kortfristig del" kredit={getPriceInclVat()} />
+    <Kontorad konto="5420" kontoNamn="Programvaror" debet={getPriceExclVat()} />
+    <Kontorad konto="2641" kontoNamn="Ingående moms" debet={getPriceVat()} />
+</Verifikat>
+
+Senare när du betalar ut ersättning för utlägget bokför du:
+
+<Verifikat datum={getDateXDaysFromNow(2)} beskrivning="Ersättning utlägg">
+    <Kontorad konto="1930" kontoNamn="Företagskonto" kredit={getPriceInclVat()} />
+    <Kontorad konto="2893" kontoNamn="Skulder till närstående personer, kortfristig del" debet={getPriceInclVat()} />
+</Verifikat>

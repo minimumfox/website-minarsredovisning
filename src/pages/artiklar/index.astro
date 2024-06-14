@@ -13,7 +13,7 @@ import LinkWithArrow from '../../components/LinkWithArrow.astro'
 const allArticles = (await getCollection('articles')).sort(
     (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 )
-const ARTICLE_CARD_WIDTH = 350
+const ARTICLE_CARD_WIDTH = 375
 ---
 
 <!doctype html>
@@ -52,6 +52,7 @@ const ARTICLE_CARD_WIDTH = 350
                                         <Image
                                             src={article.data.heroImage}
                                             width={ARTICLE_CARD_WIDTH - 30 * 2}
+                                            height={177}
                                             densities={[1.5, 2]}
                                             style="object-fit: cover; border-radius: 12px"
                                             alt=""

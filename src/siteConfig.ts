@@ -1,5 +1,5 @@
 export const SITE_TITLE = 'Min Årsredovisning'
-export const PRICE_EXCL_VAT = '640'
+export const PRICE_EXCL_VAT = 640
 export const SITE_DESCRIPTION = `Skapa årsredovisning/deklaration för mindre aktiebolag (K2), ${PRICE_EXCL_VAT} kr ex moms`
 export const SITE_EMAIL = 'info@minarsredovisning.se'
 export const LOGIN_URL = 'https://app.minarsredovisning.se/start-email-login'
@@ -17,4 +17,11 @@ export const getAppUrl = () => {
     } else {
         throw Error(`unknown TARGET_ENV "${import.meta.env.TARGET_ENV}"`)
     }
+}
+
+export const getPriceExclVat = () => PRICE_EXCL_VAT
+export const getPriceVat = () => Number((PRICE_EXCL_VAT * 0.25).toFixed(2))
+
+export const getPriceInclVat = () => {
+    return Number((getPriceExclVat() + getPriceVat()).toFixed(2))
 }

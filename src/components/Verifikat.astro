@@ -1,0 +1,44 @@
+---
+const { datum, beskrivning } = Astro.props
+const tableBorderRadius = '4px'
+export const voucherCellPaddingX = '12px'
+export const voucherCellPaddingY = '4px'
+---
+
+<style define:vars={{ tableBorderRadius, voucherCellPaddingX, voucherCellPaddingY }}>
+    th,
+    td {
+        padding-left: var(--voucherCellPaddingX);
+        padding-right: var(--voucherCellPaddingX);
+        padding-top: var(--voucherCellPaddingY);
+        padding-bottom: var(--voucherCellPaddingY);
+    }
+    th {
+        text-align: left;
+    }
+    table thead th:first-child {
+        border-top-left-radius: var(--tableBorderRadius);
+    }
+
+    table thead th:last-child {
+        border-top-right-radius: var(--tableBorderRadius);
+    }
+</style>
+<div style="margin-top: 20px; margin-bottom: 20px">
+    <div style="color: var(--headings-color); font-weight: bold">{datum}: {beskrivning}</div>
+    <table
+        style={`width: 100%; background: #f7f8f8; color: var(--headings-color); border-spacing: 0px; border: 1px solid #888; border-radius: ${tableBorderRadius}`}
+    >
+        <thead style="font-weight: bold; background: #e8e8e8">
+            <tr>
+                <th>Konto</th>
+                <th>Kontonamn</th>
+                <th>Debet</th>
+                <th>Kredit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <slot />
+        </tbody>
+    </table>
+</div>

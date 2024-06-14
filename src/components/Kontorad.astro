@@ -1,0 +1,18 @@
+---
+const { konto, kontoNamn, debet, kredit } = Astro.props
+import { voucherCellPaddingX, voucherCellPaddingY } from './Verifikat.astro'
+---
+
+<style define:vars={{ voucherCellPaddingX, voucherCellPaddingY }}>
+    td {
+        padding-left: var(--voucherCellPaddingX);
+        padding-right: var(--voucherCellPaddingX);
+        padding-top: var(--voucherCellPaddingY);
+        padding-bottom: var(--voucherCellPaddingY);
+    }
+</style><tr>
+    <td>{konto}</td>
+    <td>{kontoNamn}</td>
+    <td>{debet}</td>
+    <td>{kredit}</td>
+</tr>
