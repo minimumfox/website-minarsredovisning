@@ -15,7 +15,7 @@ const APP_URL = getAppUrl()
         <div id="form_input" style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px">
             <FormInput name="firstName" style="grid-column: span 6" placeholder="Förnamn" />
             <FormInput name="lastName" style="grid-column: span 6" placeholder="Efternamn" />
-            <FormInput name="email" style="grid-column: span 12" placeholder="E-mail" />
+            <FormInput name="email" autocomplete="email" style="grid-column: span 12" placeholder="E-mail" />
             <FormTextarea name="message" style="grid-column: span 12" rows="5" placeholder="Meddelande" />
             <Button
                 kind="filled"
