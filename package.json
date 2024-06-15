@@ -14,10 +14,10 @@
     },
     "dependencies": {
         "@astrojs/check": "^0.7.0",
-        "@astrojs/mdx": "^3.0.1",
+        "@astrojs/mdx": "^3.1.0",
         "@astrojs/rss": "^4.0.6",
         "@astrojs/sitemap": "^3.1.5",
-        "astro": "^4.9.2",
+        "astro": "^4.10.2",
         "dedent": "^1.5.3",
         "swiper": "^11.1.4",
         "typescript": "^5.4.5"
@@ -25,7 +25,7 @@
     "devDependencies": {
         "npm-check": "^6.0.1",
         "postcss-html": "^1.7.0",
-        "prettier": "^3.2.5",
+        "prettier": "^3.3.2",
         "prettier-plugin-astro": "^0.14.0",
         "stylelint": "^16.6.1",
         "stylelint-config-html": "^1.1.0",
