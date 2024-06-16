@@ -2,7 +2,7 @@
 title: 'Hur bokför jag kostnaden för Min Årsredovisning?'
 description: 'Här beskriver vi hur du bokför kostnaden för Min Årsredovisning'
 pubDate: '2024-06-14'
-updatedDate: '2024-06-14'
+updatedDate: '2024-06-16'
 heroImage: '../../static/hero-man.png'
 ---
 
@@ -11,6 +11,10 @@ import Verifikat from '../../components/Verifikat.astro'
 import Kontorad from '../../components/Kontorad.astro'
 import { getAppUrl, getPriceInclVat, getPriceExclVat, getPriceVat } from '../../siteConfig.ts'
 import { getDateXDaysFromNow } from '../../utils.ts'
+import ExpandCollapse from '../../components/ExpandCollapse.astro'
+import Card from '../../components/Card.astro'
+import imgMomsReg from './bokfor-kostnad-min-arsredovisning-momsregistrerad.png'
+import { Image } from 'astro:assets'
 
 <p>Så här bokför du kostnaden för Min Årsredovisning.</p>
 
@@ -40,3 +44,19 @@ Senare när du betalar ut ersättning för utlägget bokför du:
     <Kontorad konto="1930" kontoNamn="Företagskonto" kredit={getPriceInclVat()} />
     <Kontorad konto="2893" kontoNamn="Skulder till närstående personer, kortfristig del" debet={getPriceInclVat()} />
 </Verifikat>
+
+<ArticleH3>Övrigt</ArticleH3>
+
+<ExpandCollapse title={'Hur bokför jag kostnaden om mitt företag ej är momsregistrerat?'}>
+    Då skippar du ingående moms och bokför istället hela beloppet på kostnadskontot, till exempel så här:
+    <Verifikat datum={getDateXDaysFromNow(0)} beskrivning="Min Årsredovisning (inköpt av ej momsregistrerat AB)">
+        <Kontorad konto="1930" kontoNamn="Företagskonto" kredit={getPriceInclVat()} />
+        <Kontorad konto="5420" kontoNamn="Programvaror" debet={getPriceInclVat()} />
+    </Verifikat>
+
+</ExpandCollapse>
+<ExpandCollapse title={'Hur vet jag om mitt företag är momsregistrerat?'}>
+    Logga in på <a href="https://www.verksamt.se">www.verksamt.se</a> för att kontrollera ditt företags momsregistrering:
+    <Image src={imgMomsReg} width={400} alt="Exempel momsregistrering" />
+
+</ExpandCollapse>
