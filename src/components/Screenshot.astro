@@ -1,13 +1,13 @@
 ---
 import { Image } from 'astro:assets'
-const { style, img, ...other } = Astro.props
+const { style, img, width, ...other } = Astro.props
 ---
 
 <a href={img.src}>
     <Image
         style="border: 1px solid #999; border-radius: 4px; height: auto"
         src={img}
-        width={700}
+        width={width ?? 700}
         densities={[1.5, 2]}
         alt=""
         {...other}

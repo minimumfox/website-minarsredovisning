@@ -1,0 +1,129 @@
+---
+title: 'Hur tillför man extra kapital i ett aktiebolag?'
+description: 'Insättning av mer pengar i aktiebolag via aktieägartillskott eller lån'
+pubDate: '2024-09-06'
+updatedDate: '2024-09-06'
+heroImage: '../../static/hero-man.png'
+---
+
+import ArticleH3 from '../../components/ArticleH3.astro'
+import Verifikat from '../../components/Verifikat.astro'
+import Kontorad from '../../components/Kontorad.astro'
+import ExpandCollapse from '../../components/ExpandCollapse.astro'
+import Card from '../../components/Card.astro'
+import { getDateXDaysFromNow } from '../../utils.ts'
+import imgForandringarEgetKapitalErhalletAktieagartillskott from './aktiebolag-tillfora-extra-kapital-forandringar-i-eget-kapital-tillskott.png'
+import imgForandringarEgetKapitalVillkorat from './aktiebolag-tillfora-extra-kapital-forandringar-i-eget-kapital-villkorat.png'
+import imgForandringarEgetKapitalLangfristigt from './aktiebolag-tillfora-extra-kapital-forandringar-i-eget-kapital-langfristigt-lan.png'
+import Screenshot from '../../components/Screenshot.astro'
+import { Image } from 'astro:assets'
+export const currentYear = new Date().getFullYear()
+export const prevYear = currentYear - 1
+
+<p>Denna artikel beskriver olika sätt att tillföra extra kapital i ett aktiebolag.</p>
+
+<ArticleH3>Vilket sätt bör man använda?</ArticleH3>
+
+Kapital kan tillföras i aktiebolag på flera olika sätt, till exempel:
+
+<ul>
+    <li>
+        <b>Aktiebolaget erhåller ett ovillkorat aktieägartillskott</b>, förbättrar likviditeten och höjer samtidigt
+        fritt eget kapital. Enkelt att bokföra och mindre administrativt arbete.
+    </li>
+    <li>
+        <b>Aktiebolaget erhåller ett villkorat aktieägartillskott</b>. Liknar ovillkorat aktieägartillskott men ger
+        möjlighet för aktieägarna att komma överens om när tillskottet skall betalas tillbaka och tex om det måste
+        betalas tillbaka innan utdelning får göras. Kräver mer administrativt arbete med avtal för villkoren osv.
+    </li>
+    <li>
+        <b>Aktiebolaget tar ett lån</b> från en/flera aktieägare eller en utomstående. Detta förbättrar företagets
+        likviditet men påverkar varken aktiekapital eller fritt eget kapital. Om företaget närmar sig gränsen för
+        kontrollbalansräkning så hjälper det inte att ta ett lån; för att avhjälpa en sådan situation skall man istället
+        använda ett aktieägartillskott.
+    </li>
+    <li>
+        <b>Aktiebolaget genomför en nyemission</b>, ökar aktiekapitalet och kan även öka fritt eget kapital. Nyemission
+        (och även alla andra ändringar av aktiekapitalet) måste anmälas till Bolagsverket separat. När årsredovisningen
+        skickas in kontrollerar Bolagsverket att aktiekapitalet i balansräkningen stämmer med det sedan tidigare
+        inrapporterade aktiekapitalet.
+    </li>
+</ul>
+
+<ArticleH3>Ovillkorat aktieägartillskott</ArticleH3>
+
+När företaget tar emot ett ovillkorat aktieägartillskott på exempelvis 11000 kr så kan man bokföra:
+
+<Verifikat datum={`${prevYear}-12-24`} beskrivning="Erhållet ovillkorat aktieägartillskott">
+    <Kontorad konto="2093" kontoNamn="Erhållna aktieägartillskott" kredit={11000} />
+    <Kontorad konto="1930" kontoNamn="Företagskonto" debet={11000} />
+</Verifikat>
+
+I årsredovisningen redovisas sedan aktieägartillskottet under "Förändringar i eget kapital":
+
+<Screenshot img={imgForandringarEgetKapitalErhalletAktieagartillskott} width={900} />
+
+Under nästa räkenskapsår kan summan sedan omföras till balanserat resultat:
+
+<Verifikat
+    datum={`${currentYear}-02-14`}
+    beskrivning="Tidigare erhållet ovillkorat aktieägartillskott uppgår i balanserat resultat"
+>
+    <Kontorad konto="2093" kontoNamn="Erhållna aktieägartillskott" debet={11000} />
+    <Kontorad konto="2091" kontoNamn="Balanserat resultat" kredit={11000} />
+</Verifikat>
+
+Ovillkorade aktieägartillskott är oåterkalleliga och betalas inte tillbaka, men det fria egna
+kapitalet kan användas för t ex utdelning via årsstämma i enlighet med normala regler.
+
+Ovillkorade aktieägartillskott höjer aktieägarens omkostnadsbelopp vilket ger lägre skatt
+vid försäljning av aktierna och när aktieägaren tar utdelning.
+
+<ArticleH3>Villkorat aktieägartillskott</ArticleH3>
+
+Villkorat aktieägartillskott kan bokföras på samma sätt som ovillkorat men det är ofta en bra
+idé att låta beloppet ligga kvar på 2093. I årsredovisningen under förändringar i eget kapital
+redovisas erhållna/återbetalade villkorade aktieägartillskott som plus/minus i kolumnen för
+balanserat resultat och det skall dessutom finnas en kommentar under förändringar i eget kapital
+som anger hur mycket de villkorade aktieägartillskotten uppgår till totalt på balansdagen:
+
+<Screenshot img={imgForandringarEgetKapitalVillkorat} width={900} />
+
+Återbetalning av villkorade aktieägartillskott sker via ordinarie eller extra bolagsstämma när
+tillräckligt med vinstmedel finns att tillgå, enligt villkor som avtalades när aktieägartillskotten
+gjordes.
+
+Villkorade aktieägartillskott är också oåterkalleliga (annars skulle det röra sig om en skuld och
+då skulle inte bolagets egna kapital öka). Avtalet som upprättas är alltså mellan aktieägarna
+och utgör inget krav mot bolaget.
+
+<ArticleH3>Aktiebolaget tar ett lån från en/flera aktieägare eller en utomstående</ArticleH3>
+
+När aktiebolaget tar ett lån skriver man en skuldrevers, dvs ett dokument som beskriver vem som lånar pengarna,
+vem som lånar ut dem, villkor för avbetalning och ränta osv (detta dokument upprättas i två exemplar men behöver
+inte skickas in någonstans). Beroende på vem som lånar ut pengarna kan man använda t ex konto 2393 eller 2390:
+
+<Verifikat datum={`${new Date().toISOString().slice(0, 10)}`} beskrivning="Lån från närstående">
+    <Kontorad
+        konto="2393"
+        kontoNamn="Lån från närstående personer,
+långfristig del"
+        kredit={11000}
+    />
+    <Kontorad konto="1930" kontoNamn="Företagskonto" debet={11000} />
+</Verifikat>
+
+Om lånet förväntas förfalla till betalning senare än 5 år efter balansdagen skall detta framgå i en särskild
+not i årsredovisningen:
+
+<Screenshot img={imgForandringarEgetKapitalLangfristigt} width={900} />
+
+<ArticleH3>Övrigt</ArticleH3>
+
+<ExpandCollapse
+    title={
+        'Kan man göra en egen insättning via konto 2018 eller höja eget kapital via konto 2010 när man har ett aktiebolag?'
+    }
+>
+    Nej, bokföringskonto 2018, 2010, 2013 och liknande används endast för enskild firma.
+</ExpandCollapse>
