@@ -4,7 +4,7 @@ import logo1200 from '../static/logo-1200x1200.png'
 import logo180 from '../static/logo-180x180.png'
 import logo16 from '../static/logo-16x16.png'
 import logo32 from '../static/logo-32x32.png'
-import siteManifest from '../static/site.webmanifest'
+
 interface Props {
     title: string
     description: string
@@ -36,7 +36,7 @@ const { title, description, image = logo1200.src } = Astro.props
 <link rel="apple-touch-icon" sizes="180x180" href={logo180.src} />
 <link rel="icon" type="image/png" sizes="16x16" href={logo16.src} />
 <link rel="icon" type="image/png" sizes="32x32" href={logo32.src} />
-<link rel="manifest" href={siteManifest} />
+<link rel="manifest" href="/site.webmanifest" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 
 <title>{title}</title>
